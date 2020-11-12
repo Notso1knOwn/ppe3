@@ -1,8 +1,8 @@
-##Elements requis:
+## Elements requis:
  ide (netbeans de préférence pour les ressources swings)
  
 
-##Installation
+## Installation
 Dans le cas ou vous voudriez cloner ce repositorie sur votre machine exécuter la commande :
 
 Si vous n'avez pas git sur votre machine :
@@ -16,7 +16,7 @@ Auquel cas :
 git clone https://github.com/Notso1knOwn/PPE3.git
 ```
 
-##Utilisation:
+## Utilisation:
  Vous pouvez utiliser le .jar de ce projet ou simplement run le projet dans votre ide en commançant par la class Authentification
 
 
