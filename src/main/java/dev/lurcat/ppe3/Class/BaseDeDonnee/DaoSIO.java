@@ -33,16 +33,16 @@ public class DaoSIO {
      * Membres static (de classe)
      *
      */
-    private static String nomServeur = "127.0.0.1";
-    private static String port = "3308";
-    private static String nomBdd = "ppe3";
-    private static String nomUtilisateur = "root";
-    private static String motDePasse = "";
-//    private static String nomServeur = "10.0.10.137";
-//    private static String port = "3306";
+//    private static String nomServeur = "127.0.0.1";
+//    private static String port = "3308";
 //    private static String nomBdd = "ppe3";
 //    private static String nomUtilisateur = "root";
-//    private static String motDePasse = "root";
+//    private static String motDePasse = "";
+    private static String nomServeur = "10.0.10.137";
+    private static String port = "3306";
+    private static String nomBdd = "ppe3";
+    private static String nomUtilisateur = "root";
+    private static String motDePasse = "root";
 
     private static String chaineConnexion;
 

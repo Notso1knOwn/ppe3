@@ -43,7 +43,6 @@ public class Authentification extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabelTitle = new javax.swing.JLabel();
         jLabelUsername = new javax.swing.JLabel();
         jLabelPassword = new javax.swing.JLabel();
@@ -54,10 +53,6 @@ public class Authentification extends javax.swing.JFrame {
         jLabelReponse = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        kGradientPanel1.setkBorderRadius(0);
-        kGradientPanel1.setkEndColor(new java.awt.Color(255, 195, 120));
-        kGradientPanel1.setkStartColor(new java.awt.Color(255, 128, 249));
 
         jLabelTitle.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -99,82 +94,71 @@ public class Authentification extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addContainerGap(108, Short.MAX_VALUE)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabelReponse)
-                                .addGap(47, 47, 47)
-                                .addComponent(jButtonTest))
-                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelUsername)
-                                    .addComponent(jLabelPassword))
-                                .addGap(25, 25, 25)
-                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldCxn)
-                                    .addComponent(jPasswordFieldCxn, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 103, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonAuthentification)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelTitle)
-                .addGap(47, 47, 47)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelUsername)
-                    .addComponent(jTextFieldCxn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPassword)
-                    .addComponent(jPasswordFieldCxn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addComponent(jButtonAuthentification)
-                .addGap(13, 13, 13)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonTest)
-                    .addComponent(jLabelReponse))
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
+                .addGap(8, 8, 8))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(177, 177, 177)
+                                .addComponent(jButtonAuthentification)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelReponse, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(80, 80, 80)))
+                        .addComponent(jButtonTest))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelUsername)
+                            .addComponent(jLabelPassword))
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldCxn)
+                            .addComponent(jPasswordFieldCxn))))
+                .addGap(60, 60, 60))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addContainerGap()
+                .addComponent(jLabelTitle)
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUsername)
+                    .addComponent(jTextFieldCxn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelPassword)
+                    .addComponent(jPasswordFieldCxn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAuthentification)
+                    .addComponent(jButtonTest))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelReponse, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldCxnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCxnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCxnActionPerformed
-
-    private void jPasswordFieldCxnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldCxnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordFieldCxnActionPerformed
+    /**
+     * bouton de test: préremplis les champs avec un personnel
+     * @param evt 
+     */
+    private void jButtonTestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonTestMouseClicked
+        jTextFieldCxn.setText("MichelRafou");
+        jPasswordFieldCxn.setText("0000");
+    }//GEN-LAST:event_jButtonTestMouseClicked
 
     private void jButtonAuthentificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAuthentificationActionPerformed
         // TODO add your handling code here:
@@ -186,11 +170,11 @@ public class Authentification extends javax.swing.JFrame {
      */
     private void jButtonAuthentificationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAuthentificationMouseClicked
         ArrayList<Integer> infoPersonnel = new ArrayList<Integer>();
-//        profil = this.bdd.authentification(jTextFieldCxn.getText(), jPasswordFieldCxn.getText());
+        //        profil = this.bdd.authentification(jTextFieldCxn.getText(), jPasswordFieldCxn.getText());
         infoPersonnel = this.data.authentification(jTextFieldCxn.getText(), jPasswordFieldCxn.getText());
         switch (infoPersonnel.get(1)) {
             case 1:
-                dev.lurcat.ppe3.Interface.Gestion unPageGestion;
+            dev.lurcat.ppe3.Interface.Gestion unPageGestion;
             try {
                 unPageGestion = new Gestion();
                 unPageGestion.setVisible(true);
@@ -198,28 +182,27 @@ public class Authentification extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(Authentification.class.getName()).log(Level.SEVERE, null, ex);
             }
-                break;
+            break;
             case 2:
-                dev.lurcat.ppe3.Interface.Catalogue unIndex = new Catalogue();
-                unIndex.setId_Personnel(infoPersonnel.get(0));
-                unIndex.setVisible(true);
-                this.dispose();
-//                this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-                break;
+            dev.lurcat.ppe3.Interface.Catalogue unIndex = new Catalogue();
+            unIndex.setId_Personnel(infoPersonnel.get(0));
+            unIndex.setVisible(true);
+            this.dispose();
+            //                this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+            break;
             default:
-                jLabelReponse.setText("Cet utilisateur n'est pas existant");
-                break;
+            jLabelReponse.setText("Cet utilisateur n'est pas existant");
+            break;
         }
     }//GEN-LAST:event_jButtonAuthentificationMouseClicked
 
-    /**
-     * bouton de test: préremplis les champs avec un personnel
-     * @param evt 
-     */
-    private void jButtonTestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonTestMouseClicked
-        jTextFieldCxn.setText("MichelRafou");
-        jPasswordFieldCxn.setText("0000");
-    }//GEN-LAST:event_jButtonTestMouseClicked
+    private void jPasswordFieldCxnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldCxnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordFieldCxnActionPerformed
+
+    private void jTextFieldCxnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCxnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCxnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,6 +248,5 @@ public class Authentification extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelUsername;
     private javax.swing.JPasswordField jPasswordFieldCxn;
     private javax.swing.JTextField jTextFieldCxn;
-    private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables
 }
