@@ -16,6 +16,8 @@ Auquel cas :
 git clone https://github.com/Notso1knOwn/PPE3.git
 ```
 
+Aussi non téléchargez le zip du projet et dézipper dans le répertoire que vous lui avez affecté.
+
 ## Utilisation:
  Vous pouvez utiliser le .jar de ce projet ou simplement run le projet dans votre ide en commançant par la class Authentification
 
