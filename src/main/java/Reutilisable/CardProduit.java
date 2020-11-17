@@ -37,7 +37,7 @@ public class CardProduit extends javax.swing.JPanel {
      */
     public CardProduit() {
         initComponents();
-        jButtonAjoutPanier.setIcon(new ImageIcon(new ImageIcon("G:\\COURS\\NetBeansProjects\\PPE3\\Icones/icons8-ajouter-au-panier-64.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
+        jButtonAjoutPanier.setIcon(new ImageIcon(new ImageIcon("Icones/icons8-ajouter-au-panier-64.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
     }
     
     /**
