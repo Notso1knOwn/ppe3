@@ -49,7 +49,6 @@ public class Authentification extends javax.swing.JFrame {
         jTextFieldCxn = new javax.swing.JTextField();
         jPasswordFieldCxn = new javax.swing.JPasswordField();
         jButtonAuthentification = new javax.swing.JButton();
-        jButtonTest = new javax.swing.JButton();
         jLabelReponse = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,13 +86,6 @@ public class Authentification extends javax.swing.JFrame {
             }
         });
 
-        jButtonTest.setText("Test");
-        jButtonTest.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonTestMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,17 +96,14 @@ public class Authentification extends javax.swing.JFrame {
                 .addGap(8, 8, 8))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(jButtonAuthentification)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(177, 177, 177)
-                                .addComponent(jButtonAuthentification)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelReponse, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(80, 80, 80)))
-                        .addComponent(jButtonTest))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelReponse, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(152, 152, 152))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,9 +129,7 @@ public class Authentification extends javax.swing.JFrame {
                     .addComponent(jLabelPassword)
                     .addComponent(jPasswordFieldCxn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAuthentification)
-                    .addComponent(jButtonTest))
+                .addComponent(jButtonAuthentification)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelReponse, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
@@ -150,15 +137,6 @@ public class Authentification extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * bouton de test: préremplis les champs avec un personnel
-     * @param evt 
-     */
-    private void jButtonTestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonTestMouseClicked
-        jTextFieldCxn.setText("MichelRafou");
-        jPasswordFieldCxn.setText("0000");
-    }//GEN-LAST:event_jButtonTestMouseClicked
 
     private void jButtonAuthentificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAuthentificationActionPerformed
         // TODO add your handling code here:
@@ -169,30 +147,31 @@ public class Authentification extends javax.swing.JFrame {
      * @param evt 
      */
     private void jButtonAuthentificationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAuthentificationMouseClicked
-        ArrayList<Integer> infoPersonnel = new ArrayList<Integer>();
-        //        profil = this.bdd.authentification(jTextFieldCxn.getText(), jPasswordFieldCxn.getText());
-        infoPersonnel = this.data.authentification(jTextFieldCxn.getText(), jPasswordFieldCxn.getText());
+        ArrayList<Integer> infoPersonnel = this.data.authentification(jTextFieldCxn.getText(), jPasswordFieldCxn.getText());
         switch (infoPersonnel.get(1)) {
-            case 1:
-            dev.lurcat.ppe3.Interface.Gestion unPageGestion;
-            try {
-                unPageGestion = new Gestion();
-                unPageGestion.setVisible(true);
-                this.dispose();
-            } catch (SQLException ex) {
-                Logger.getLogger(Authentification.class.getName()).log(Level.SEVERE, null, ex);
+            case 1: {
+                dev.lurcat.ppe3.Interface.Gestion unPageGestion;
+                try {
+                    unPageGestion = new Gestion();
+                    unPageGestion.setVisible(true);
+                    this.dispose();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Authentification.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
             }
-            break;
-            case 2:
-            dev.lurcat.ppe3.Interface.Catalogue unIndex = new Catalogue();
-            unIndex.setId_Personnel(infoPersonnel.get(0));
-            unIndex.setVisible(true);
-            this.dispose();
-            //                this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-            break;
-            default:
-            jLabelReponse.setText("Cet utilisateur n'est pas existant");
-            break;
+            case 2: {
+                dev.lurcat.ppe3.Interface.Catalogue unIndex = new Catalogue();
+                unIndex.setId_Personnel(infoPersonnel.get(0));
+                unIndex.setVisible(true);
+                this.dispose();
+                //                this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+                break;
+            }
+            default: {
+                jLabelReponse.setText("Cet utilisateur n'est pas existant");
+                break;
+            }
         }
     }//GEN-LAST:event_jButtonAuthentificationMouseClicked
 
@@ -241,7 +220,6 @@ public class Authentification extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAuthentification;
-    private javax.swing.JButton jButtonTest;
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelReponse;
     private javax.swing.JLabel jLabelTitle;

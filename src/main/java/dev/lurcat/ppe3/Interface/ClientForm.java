@@ -44,10 +44,10 @@ public class ClientForm extends javax.swing.JFrame {
     public void InitGestionPanel(){
         nomCategorie = "Client";
         ArrayList<String> lesRequêtesClients = new ArrayList<>();
-        lesRequêtesClients.add("SELECT * FROM Client ORDER BY Id_Client");
-        lesRequêtesClients.add("INSERT INTO Client VALUES (null,?,?,?,?)");
-        lesRequêtesClients.add("UPDATE Client SET prenom = ? , nom = ? , email = ? , telephone = ? WHERE Id_Client = ?");
-        lesRequêtesClients.add("DELETE FROM Client WHERE Id_Client = ?");
+        lesRequêtesClients.add("SELECT * FROM client ORDER BY Id_Client");
+        lesRequêtesClients.add("INSERT INTO client VALUES (null,?,?,?,?)");
+        lesRequêtesClients.add("UPDATE client SET prenom = ? , nom = ? , email = ? , telephone = ? WHERE Id_Client = ?");
+        lesRequêtesClients.add("DELETE FROM client WHERE Id_Client = ?");
         
         lesRequêtes = lesRequêtesClients;
     }
@@ -84,6 +84,11 @@ public class ClientForm extends javax.swing.JFrame {
         });
 
         jButtonAnnuler.setText("Annuler");
+        jButtonAnnuler.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAnnulerMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,6 +141,10 @@ public class ClientForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Veuillez selectionner un Client");
         }
     }//GEN-LAST:event_jButtonValiderMouseClicked
+
+    private void jButtonAnnulerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnnulerMouseClicked
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAnnulerMouseClicked
 
     /**
      * @param args the command line arguments

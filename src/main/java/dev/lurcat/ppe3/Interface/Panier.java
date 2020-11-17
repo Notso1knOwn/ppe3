@@ -54,7 +54,7 @@ public class Panier extends javax.swing.JFrame {
         this.parent = pParent;
         InitTableauPanier();
         
-        jButtonSpprimer.setIcon(new ImageIcon(new ImageIcon("G:\\COURS\\NetBeansProjects\\PPE3\\Icones/icons8-supprimer-pour-toujours-64.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
+        jButtonSpprimer.setIcon(new ImageIcon(new ImageIcon("Icones/icons8-supprimer-pour-toujours-64.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
     
         setLabelClient();
     }
@@ -81,7 +81,7 @@ public class Panier extends javax.swing.JFrame {
         Float prixTotale = 0f;
         
         for (Integer key : this.parent.getPanier().keySet()) {
-            ResultSet infoProduit = DaoSIO.getInstance().requeteSelection("SELECT libelle, tarif from Produit WHERE Id_Produit = " + key);
+            ResultSet infoProduit = DaoSIO.getInstance().requeteSelection("SELECT libelle, tarif from produit WHERE Id_Produit = " + key);
 
             while (infoProduit.next()) {
                 prixTotale += parent.getPanier().get(key) * Float.parseFloat(infoProduit.getString("tarif"));
@@ -181,6 +181,11 @@ public class Panier extends javax.swing.JFrame {
         });
 
         jButtonCatalogue.setText("Catalogue");
+        jButtonCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonCatalogueMouseClicked(evt);
+            }
+        });
 
         jButtonValider.setText("Valider");
         jButtonValider.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -214,9 +219,7 @@ public class Panier extends javax.swing.JFrame {
                         .addComponent(jButtonCatalogue)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonValider))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelClient, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabelClient, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -343,6 +346,10 @@ public class Panier extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Vueillez selectionner un produit.");
         }
     }//GEN-LAST:event_jButtonSpprimerMouseClicked
+
+    private void jButtonCatalogueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCatalogueMouseClicked
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCatalogueMouseClicked
 
     /**
      * @param args the command line arguments

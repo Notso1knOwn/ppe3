@@ -50,7 +50,7 @@ public class Bdd {
     public ArrayList<Integer> authentification(String pUser, String pPassword) {
         ArrayList<Integer> infoPersonnel = new ArrayList<Integer>();
         try {
-            String query = "SELECT Id_Personnel,Id_Profil FROM Personnel WHERE pseudo = '" + pUser + "' AND mdp = '" + pPassword + "'";
+            String query = "SELECT Id_Personnel,Id_Profil FROM personnel WHERE pseudo = '" + pUser + "' AND mdp = '" + pPassword + "'";
             ResultSet result = DaoSIO.getInstance().requeteSelection(query);
             if (result.next()) {
                 infoPersonnel.add(Integer.parseInt(result.getString("Id_Personnel")));
@@ -72,10 +72,10 @@ public class Bdd {
         ArrayList<String> lesValeurs = new ArrayList<String>();
         lesValeurs.add(String.valueOf(id_Client));
         lesValeurs.add(String.valueOf(id_Personnel));
-        String query = "INSERT INTO Commande VALUES(null,NOW(),1,?,?);";
+        String query = "INSERT INTO commande(date_commande,Id_Etat_Commande,Id_Client,Id_Personnel) VALUES(NOW(),1,?,?);";
         Integer idCommande = DaoSIO.getInstance().requetePrepareActionKey(query, lesValeurs);
         if(idCommande != 0){
-        query = "INSERT INTO Contenir VALUES ";
+        query = "INSERT INTO contenir VALUES ";
          int i = 1;
         for (Integer id_Produit : pPanier.keySet()) {
             if(i != pPanier.size()){
@@ -96,13 +96,13 @@ public class Bdd {
 
     public ResultSet GetProfil(){
         ResultSet Response = null;
-        String query = "SELECT Id_Profil, libelle, description FROM Profil ORDER by Id_Profil";
+        String query = "SELECT Id_Profil, libelle, description FROM profil ORDER by Id_Profil";
         Response = DaoSIO.getInstance().requeteSelection(query);
         return Response;
     }
     
     public Integer getStockProduit(Integer idProduit) throws SQLException{
-        ResultSet rsStockProduit = DaoSIO.getInstance().requeteSelection("SELECT Stock FROM Produit WHERE Id_Produit = " + idProduit);
+        ResultSet rsStockProduit = DaoSIO.getInstance().requeteSelection("SELECT Stock FROM produit WHERE Id_Produit = " + idProduit);
         Integer stockProduit = 0;
         if (rsStockProduit.next()) {
             stockProduit = rsStockProduit.getInt(1);

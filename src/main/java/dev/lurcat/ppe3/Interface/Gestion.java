@@ -79,28 +79,28 @@ public final class Gestion extends javax.swing.JFrame {
     
     public void InitAttributLesRequêtes(){
         ArrayList<String> lesRequêtesProfils = new ArrayList<>();
-        lesRequêtesProfils.add("SELECT * FROM Profil ORDER BY Id_Profil");
-        lesRequêtesProfils.add("INSERT INTO Profil VALUES (null,?,?)");
-        lesRequêtesProfils.add("UPDATE Profil SET libelle = ? , descriptif = ? WHERE Id_Profil = ?");
-        lesRequêtesProfils.add("DELETE FROM Profil WHERE Id_Profil = ?");
+        lesRequêtesProfils.add("SELECT * FROM profil ORDER BY Id_Profil");
+        lesRequêtesProfils.add("INSERT INTO profil VALUES (null,?,?)");
+        lesRequêtesProfils.add("UPDATE profil SET libelle = ? , descriptif = ? WHERE Id_Profil = ?");
+        lesRequêtesProfils.add("DELETE FROM profil WHERE Id_Profil = ?");
         
         ArrayList<String> lesRequêtesPersonnels = new ArrayList<>();
-        lesRequêtesPersonnels.add("SELECT * FROM Personnel WHERE Id_Profil != 1 ORDER BY Id_Personnel");
-        lesRequêtesPersonnels.add("INSERT INTO Personnel VALUES (null,?,?,?,?,?,?,?)");
-        lesRequêtesPersonnels.add("UPDATE Personnel SET prenom = ? , nom = ? , pseudo = ? , mdp = ? , telephone = ? , email = ?, Id_Profil = ? WHERE Id_Personnel = ?");
-        lesRequêtesPersonnels.add("DELETE FROM Personnel WHERE Id_Personnel = ? AND Id_Profil != 1");
+        lesRequêtesPersonnels.add("SELECT * FROM personnel WHERE Id_Profil != 1 ORDER BY Id_Personnel");
+        lesRequêtesPersonnels.add("INSERT INTO personnel VALUES (null,?,?,?,?,?,?,?)");
+        lesRequêtesPersonnels.add("UPDATE personnel SET prenom = ? , nom = ? , pseudo = ? , mdp = ? , telephone = ? , email = ?, Id_Profil = ? WHERE Id_Personnel = ?");
+        lesRequêtesPersonnels.add("DELETE FROM personnel WHERE Id_Personnel = ? AND Id_Profil != 1");
         
         ArrayList<String> lesRequêtesProduits = new ArrayList<>();
-        lesRequêtesProduits.add("SELECT * FROM Produit ORDER BY Id_Produit");
-        lesRequêtesProduits.add("INSERT INTO Personnel VALUES (null,?,?,?,?,?,?,?)");
-        lesRequêtesProduits.add("UPDATE Personnel SET libelle = ? , description = ? , tarif = ? , stock = ? , note = ? , lien_image = ?, Id_Categorie = ? WHERE Id_Produit = ?");
-        lesRequêtesProduits.add("DELETE FROM Produit WHERE Id_Produit = ?");
+        lesRequêtesProduits.add("SELECT * FROM produit ORDER BY Id_Produit");
+        lesRequêtesProduits.add("INSERT INTO personnel VALUES (null,?,?,?,?,?,?,?)");
+        lesRequêtesProduits.add("UPDATE personnel SET libelle = ? , description = ? , tarif = ? , stock = ? , note = ? , lien_image = ?, Id_Categorie = ? WHERE Id_Produit = ?");
+        lesRequêtesProduits.add("DELETE FROM produit WHERE Id_Produit = ?");
         
         ArrayList<String> lesRequêtesClients = new ArrayList<>();
-        lesRequêtesClients.add("SELECT * FROM Client ORDER BY Id_Client");
-        lesRequêtesClients.add("INSERT INTO Client VALUES (null,?,?,?,?)");
-        lesRequêtesClients.add("UPDATE Client SET prenom = ? , nom = ? , email = ? , telephone = ? WHERE Id_Client = ?");
-        lesRequêtesClients.add("DELETE FROM Client WHERE Id_Client = ?");
+        lesRequêtesClients.add("SELECT * FROM client ORDER BY Id_Client");
+        lesRequêtesClients.add("INSERT INTO client VALUES (null,?,?,?,?)");
+        lesRequêtesClients.add("UPDATE client SET prenom = ? , nom = ? , email = ? , telephone = ? WHERE Id_Client = ?");
+        lesRequêtesClients.add("DELETE FROM client WHERE Id_Client = ?");
         
         
         this.lesRequêtes.add(lesRequêtesProfils);
@@ -117,7 +117,7 @@ public final class Gestion extends javax.swing.JFrame {
     public void InitTableCommande() throws SQLException{
         DefaultTableModel model = (DefaultTableModel) jTableCommande.getModel();
         
-            ResultSet lesCommandes = DaoSIO.getInstance().requeteSelection("SELECT Id_Commande,date_commande,Client.nom,Client.prenom,Personnel.nom,Personnel.prenom FROM Commande, Client, Personnel WHERE Commande.Id_Client = Client.Id_Client AND Commande.Id_Personnel = Personnel.Id_Personnel");
+            ResultSet lesCommandes = DaoSIO.getInstance().requeteSelection("SELECT Id_Commande,date_commande,client.nom,client.prenom,personnel.nom,personnel.prenom FROM commande, client, personnel WHERE commande.Id_Client = client.Id_Client AND commande.Id_Personnel = personnel.Id_Personnel");
 
             while (lesCommandes.next()) {
                 model.addRow(new Object[]{lesCommandes.getInt("Id_Commande"), lesCommandes.getString("date_commande"), lesCommandes.getString("client.nom")+" "+lesCommandes.getString("client.prenom"),lesCommandes.getString("personnel.nom")+" "+lesCommandes.getString("personnel.prenom")});
@@ -127,13 +127,13 @@ public final class Gestion extends javax.swing.JFrame {
     public void InitTableStatStock() throws SQLException{
          DefaultTableModel model = (DefaultTableModel) jTableStatStock.getModel();
         
-            ResultSet lesProduits = DaoSIO.getInstance().requeteSelection("SELECT Id_Produit,libelle,tarif,stock FROM Produit WHERE stock <= 10 ORDER BY stock ASC");
+            ResultSet lesProduits = DaoSIO.getInstance().requeteSelection("SELECT Id_Produit,libelle,tarif,stock FROM produit WHERE stock <= 10 ORDER BY stock ASC");
 
             while (lesProduits.next()) {
                 model.addRow(new Object[]{lesProduits.getInt("Id_Produit"), lesProduits.getString("libelle"), lesProduits.getInt("tarif"),lesProduits.getInt("stock")});
             }
          
-         ResultSet chiffreAffaire  = DaoSIO.getInstance().requeteSelection("SELECT SUM(Produit.tarif*Contenir.quantite) AS chiffreAffaire FROM Contenir, Produit");
+         ResultSet chiffreAffaire  = DaoSIO.getInstance().requeteSelection("SELECT SUM(produit.tarif*contenir.quantite) AS chiffreAffaire FROM contenir, produit");
          if(chiffreAffaire.next()){
              jLabelChiffreAffaire.setText("Chiffre d'affaire en cours : "+chiffreAffaire.getInt(1)+"€");
          }

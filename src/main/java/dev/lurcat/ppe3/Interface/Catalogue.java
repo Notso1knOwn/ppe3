@@ -82,7 +82,7 @@ public class Catalogue extends javax.swing.JFrame {
     */
     public void InitTabbedPaneCategorie() {
             try {
-                String query = "SELECT Id_Categorie, libelle FROM Categorie ORDER by Id_Categorie";
+                String query = "SELECT Id_Categorie, libelle FROM categorie ORDER by Id_Categorie";
                 ResultSet lesCategories = DaoSIO.getInstance().requeteSelection(query);
 
                 while (lesCategories.next()) {
@@ -106,8 +106,8 @@ public class Catalogue extends javax.swing.JFrame {
         
             try {
                 String query = "SELECT *";
-                query += " FROM Produit";
-                query += " ORDER BY Produit.Id_Categorie";
+                query += " FROM produit";
+                query += " ORDER BY produit.Id_Categorie";
                 ResultSet lesProduits = DaoSIO.getInstance().requeteSelection(query);
                 
 
@@ -201,7 +201,7 @@ public class Catalogue extends javax.swing.JFrame {
         jLabelLibelle = new javax.swing.JLabel();
         jTabbedPaneCategorie = new javax.swing.JTabbedPane();
         jButtonPanier = new javax.swing.JButton();
-        jButtonTest = new javax.swing.JButton();
+        jButtonClient = new javax.swing.JButton();
         jLabelClient = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -218,10 +218,10 @@ public class Catalogue extends javax.swing.JFrame {
             }
         });
 
-        jButtonTest.setText("Test");
-        jButtonTest.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonClient.setText("Client");
+        jButtonClient.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonTestMouseClicked(evt);
+                jButtonClientMouseClicked(evt);
             }
         });
 
@@ -235,7 +235,7 @@ public class Catalogue extends javax.swing.JFrame {
                     .addComponent(jTabbedPaneCategorie, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
                     .addComponent(jLabelLibelle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonTest)
+                        .addComponent(jButtonClient)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelClient, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -250,7 +250,7 @@ public class Catalogue extends javax.swing.JFrame {
                     .addComponent(jLabelClient, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonPanier)
-                        .addComponent(jButtonTest)))
+                        .addComponent(jButtonClient)))
                 .addGap(24, 24, 24)
                 .addComponent(jLabelLibelle, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -271,15 +271,12 @@ public class Catalogue extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonPanierMouseClicked
 
-    private void jButtonTestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonTestMouseClicked
-        panier.put(1, 9);
-        panier.put(3, 2);
-        panier.put(6, 8);
+    private void jButtonClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClientMouseClicked
         ClientForm unClientForm = new ClientForm(this);
         unClientForm.setVisible(true);
         unClientForm.setLocationRelativeTo(this);
 
-    }//GEN-LAST:event_jButtonTestMouseClicked
+    }//GEN-LAST:event_jButtonClientMouseClicked
 
     /**
      * @param args the command line arguments
@@ -318,8 +315,8 @@ public class Catalogue extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonClient;
     private javax.swing.JButton jButtonPanier;
-    private javax.swing.JButton jButtonTest;
     private javax.swing.JLabel jLabelClient;
     private javax.swing.JLabel jLabelLibelle;
     private javax.swing.JTabbedPane jTabbedPaneCategorie;

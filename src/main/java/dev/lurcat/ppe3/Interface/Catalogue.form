@@ -30,7 +30,7 @@
                   <Component id="jTabbedPaneCategorie" pref="580" max="32767" attributes="0"/>
                   <Component id="jLabelLibelle" alignment="1" pref="580" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButtonTest" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonClient" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabelClient" min="-2" pref="216" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -49,7 +49,7 @@
                   <Component id="jLabelClient" alignment="1" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonPanier" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonTest" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonClient" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -83,12 +83,12 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonPanierMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonTest">
+    <Component class="javax.swing.JButton" name="jButtonClient">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Test"/>
+        <Property name="text" type="java.lang.String" value="Client"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonTestMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonClientMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelClient">

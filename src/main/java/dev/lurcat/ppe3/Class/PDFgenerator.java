@@ -30,7 +30,7 @@ public class PDFgenerator {
         columnTitle.add("Prix Totale");
         Document unDocument = new Document(PageSize.A4);
         try {
-            PdfWriter.getInstance(unDocument, new FileOutputStream("G:\\Facture_"+leClient.getNom()+"_"+idCommande+".pdf"));
+            PdfWriter.getInstance(unDocument, new FileOutputStream(System.getProperty("user.home")+"/Desktop\\Facture_"+leClient.getNom()+"_"+idCommande+".pdf"));
             unDocument.addAuthor("2TAK_HARDWARE");
             unDocument.addTitle("Facturation_"+leClient.getNom()+"_"+leClient.getPrenom());
             unDocument.open();
