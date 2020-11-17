@@ -117,7 +117,7 @@ public final class Gestion extends javax.swing.JFrame {
     public void InitTableCommande() throws SQLException{
         DefaultTableModel model = (DefaultTableModel) jTableCommande.getModel();
         
-            ResultSet lesCommandes = DaoSIO.getInstance().requeteSelection("SELECT Id_Commande,date_commande,client.nom,client.prenom,personnel.nom,personnel.prenom FROM commande, client, personnel WHERE commande.Id_Client = client.Id_Client AND commande.Id_Personnel = Personnel.Id_Personnel");
+            ResultSet lesCommandes = DaoSIO.getInstance().requeteSelection("SELECT Id_Commande,date_commande,Client.nom,Client.prenom,Personnel.nom,Personnel.prenom FROM Commande, Client, Personnel WHERE Commande.Id_Client = Client.Id_Client AND Commande.Id_Personnel = Personnel.Id_Personnel");
 
             while (lesCommandes.next()) {
                 model.addRow(new Object[]{lesCommandes.getInt("Id_Commande"), lesCommandes.getString("date_commande"), lesCommandes.getString("client.nom")+" "+lesCommandes.getString("client.prenom"),lesCommandes.getString("personnel.nom")+" "+lesCommandes.getString("personnel.prenom")});
@@ -133,7 +133,7 @@ public final class Gestion extends javax.swing.JFrame {
                 model.addRow(new Object[]{lesProduits.getInt("Id_Produit"), lesProduits.getString("libelle"), lesProduits.getInt("tarif"),lesProduits.getInt("stock")});
             }
          
-         ResultSet chiffreAffaire  = DaoSIO.getInstance().requeteSelection("SELECT SUM(Produit.tarif*contenir.quantite) AS chiffreAffaire FROM contenir, Produit");
+         ResultSet chiffreAffaire  = DaoSIO.getInstance().requeteSelection("SELECT SUM(Produit.tarif*Contenir.quantite) AS chiffreAffaire FROM Contenir, Produit");
          if(chiffreAffaire.next()){
              jLabelChiffreAffaire.setText("Chiffre d'affaire en cours : "+chiffreAffaire.getInt(1)+"€");
          }
